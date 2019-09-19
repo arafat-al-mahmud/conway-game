@@ -2,7 +2,7 @@
 
 Grid Input: 
 
-* - live
-. - dead
+asterisk ->  live
+dot -> dead
 
 ., ., *, ., *, *, ., *, *
