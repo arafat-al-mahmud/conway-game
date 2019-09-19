@@ -12,9 +12,7 @@ services:
       - mongo
       - --eval
       - "db.adminCommand('ping')"
-    ports:
-      - "27017:27017"
-
+    
   redis:
     image: redis
     restart: always
