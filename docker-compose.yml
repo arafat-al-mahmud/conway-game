@@ -1,0 +1,47 @@
+version: "2.4"
+
+services:
+  mongodb:
+    image: mongo
+    restart: always
+    volumes:
+      - conway-data-volume:/data/db
+    healthcheck:
+      test:
+      - CMD
+      - mongo
+      - --eval
+      - "db.adminCommand('ping')"
+    ports:
+      - "27017:27017"
+
+  redis:
+    image: redis
+    restart: always
+    healthcheck:
+      test: redis-cli ping
+
+  api:
+    build:
+      context: .
+    volumes:
+      - /app/node_modules
+      - ./:/app
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      API_PORT: 3000
+      DB_URL: mongodb://mongodb:27017
+      DB_NAME: conway
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    command: 'npm start'
+    ports:
+      - '3000:3000'
+
+
+volumes:
+  conway-data-volume:

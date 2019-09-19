@@ -1,0 +1,34 @@
+{
+  "name": "conway-game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec node ./index.js",
+    "start": "node ./index.js",
+    "test": "jest src --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arafat-al-mahmud/conway-game.git"
+  },
+  "author": "arafat-al-mahmud",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arafat-al-mahmud/conway-game/issues"
+  },
+  "homepage": "https://github.com/arafat-al-mahmud/conway-game#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongodb": "^3.1.13"
+  },
+  "devDependencies": {
+    "dotenv": "^6.2.0",
+    "faker": "^4.1.0",
+    "jest": "^24.3.1",
+    "mongodb-memory-server": "^4.0.2",
+    "nodemon": "^1.18.10",
+    "rimraf": "^2.6.3"
+  }
+}
